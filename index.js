@@ -1,15 +1,18 @@
-express = require('express');//call express module
-app = express();
-request = require('request');// call the request module
-path = require('path');// call the path modeule
+const express = require('express');//call express module
+const app = express();
+const request = require('request');// call the request module
+const path = require('path');// call the path modeule
+const cors = require('cors');
 
 
-config = require('./config');
-ccapi = require('./routes/ccapi');
-interval = require('./routes/interval');
+const config = require('./config');
+const ccapi = require('./routes/ccapi');
+const interval = require('./routes/interval');
 
 //Build other app variables
 var port = 3000;
+
+app.use(cors());
 
 //MAIN PAGE
 app.use('/', express.static(path.join(__dirname, 'html')));
